@@ -3,8 +3,25 @@ var startedBurn = true;
 function startBurn(that){
 			$(that).addClass('btn-danger');
 			setInterval(function(){
-				$(that).parent().next().children().addClass('btn-warning');
-				$(that).parent().prev().children().addClass('btn-warning');
+				if (!($(that).parent().next().children().hasClass('btn-primary'))) {
+					$(that).parent().next().children().addClass('btn-warning');
+				}
+				
+				if (!($(that).parent().prev().children().hasClass('btn-primary'))) {
+					$(that).parent().prev().children().addClass('btn-warning');
+				}
+				
+				if (!($(that).parent()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.prev()
+				.children().hasClass('btn-primary'))) {
 				$(that).parent()
 				.prev()
 				.prev()
@@ -16,6 +33,19 @@ function startBurn(that){
 				.prev()
 				.prev()
 				.children().addClass('btn-warning');
+				}
+
+				if (!($(that).parent()
+				.next()
+				.next()
+				.next()
+				.next()
+				.next()
+				.next()
+				.next()
+				.next()
+				.next()
+				.children().hasClass('btn-primary'))) {
 				$(that).parent()
 				.next()
 				.next()
@@ -27,6 +57,8 @@ function startBurn(that){
 				.next()
 				.next()
 				.children().addClass('btn-warning');
+				}
+				
 			}, 2000);
 
 			setTimeout(function(){
@@ -36,16 +68,6 @@ function startBurn(that){
 }
 
 $(function() {
-
-	setInterval(function(){
-		var allBtns = $('.btn');
-		for (var i = 0; i < allBtns.length; i++) {
-			if ($(allBtns[i]).attr('class').split('btn-primary').length > 1 ) {
-				$(allBtns[i]).removeClass('btn-warning');
-				$(allBtns[i]).removeClass('btn-danger');
-			};
-		};
-	}, 1);
 
 	$('#lake').on('click', function(){
 		if (selected === 'campfire') {
